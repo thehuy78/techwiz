@@ -1,0 +1,297 @@
+<style>
+  .contact {
+    display: grid;
+    border: 0.2vw ridge yellowgreen;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vw;
+    padding: 2vw;
+  }
+
+  .map {
+    width: 50%;
+    height: 50%;
+  }
+
+  /* .contact__map {
+    width: 100%;
+    height: fit-content;
+  } */
+  .location__map__aboutus {
+
+    align-items: right;
+  }
+
+  #address_store {
+    align-items: right;
+    font-size: 18px;
+  }
+
+  #distance {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .border__contact__input {
+    display: flex;
+    margin-bottom: 2vw;
+  }
+
+  .border__contact__input>label {
+    display: inline-block;
+    width: 20%;
+    font-size: 1.5vw;
+  }
+
+  .border__contact__input>input,
+  #message {
+    width: 70%;
+    height: 3vw;
+    border: 0.1vw solid rgb(217, 248, 155);
+    outline: 0.1vw solid rgb(217, 248, 155);
+  }
+
+  .border__contact__input>input:focus,
+  #message:focus {
+    border: 0.1vw solid rgb(0, 173, 14);
+    outline: 0.1vw solid rgb(0, 173, 14);
+  }
+
+  #message {
+    height: 8vw;
+  }
+
+  .btn__send {
+    margin-left: 20%;
+    width: 71%;
+    height: 5vw;
+    font-size: 1.5vw;
+    border-radius: 1vw;
+    transition: 0.3s;
+    background-color: rgb(161, 255, 161);
+  }
+
+  .btn__send:hover {
+    transform: scale(0.9);
+    background-color: rgb(4, 216, 4);
+  }
+
+  .showroom {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1fr;
+    gap: 3vw;
+    padding: 2vw;
+  }
+
+  .image__showroom>img {
+    width: 100%;
+  }
+
+  .info__showroom> {
+    font-size: 1.3vw;
+  }
+
+  .info__showroom__title {
+    font-size: 2.2vw;
+    font-weight: 600;
+  }
+
+  .info__showroom__open {
+    font-size: 1.5vw;
+  }
+
+  .info__showroom__hotline {
+    font-size: 1.7vw;
+    padding: 0;
+    margin: 0;
+  }
+
+  .info__showroom__hotline__note {
+    font-size: 1.1vw;
+  }
+
+  .contact__social>img {
+    margin-left: 10%;
+    width: 80%;
+  }
+
+  .social__list {
+    width: 100%;
+    margin-top: 3vw;
+    font-size: 100%;
+    display: flex;
+    gap: 4rem;
+    justify-content: space-around;
+  }
+
+  .contact__icon__social {
+    font-size: 3vw;
+    color: rgb(127, 126, 126);
+    transition: 0.2s;
+  }
+
+  .contact__icon__social:hover {
+    color: black;
+    transform: scale(1.1);
+  }
+
+  @media screen and (max-width: 768px) {
+    .contact {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .border__contact__input {
+      display: flex;
+      margin-bottom: 3vw;
+    }
+
+    .border__contact__input>label {
+      font-size: 3vw;
+    }
+
+    .aboutus-map {
+      width: 100%;
+      min-height: 50vw;
+      height: 100%;
+    }
+
+    .location__map__aboutus {
+      display: block;
+      text-align: center;
+      align-items: center;
+    }
+
+    #distance {
+      text-align: center;
+
+    }
+
+    .showroom {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        "a a"
+        "b b"
+        "c c";
+    }
+
+    .image__showroom {
+      grid-area: a;
+    }
+
+    .info__showroom {
+      width: 100%;
+      grid-area: b;
+    }
+
+    .contact__social {
+      width: 100%;
+      grid-area: c;
+
+    }
+
+    .info__showroom__title {
+      font-size: 6vw;
+      font-weight: 600;
+    }
+
+    .info__showroom__open {
+      font-size: 4vw;
+    }
+
+    .info__showroom__hotline {
+      font-size: 5vw;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info__showroom__hotline__note {
+      font-size: 3vw;
+    }
+
+    .info__showroom__branch {
+      font-size: 3.5vw;
+    }
+
+    .contact__icon__social {
+      font-size: 8vw;
+    }
+
+    .btn__send {
+      height: 7vw;
+      font-size: 3vw;
+    }
+  }
+
+  .contactUs {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+</style>
+
+<div ng-controller="contactUs" class="contactUs">
+  <div>
+    <div class="contact">
+      <div class="contact__form">
+        <div class="contact__form__submit">
+          <div class="border__contact__input">
+            <label for="">Email:</label>
+            <input type="text" name="email" id="email" placeholder="Your email" />
+          </div>
+          <div class="border__contact__input">
+            <label for="">Phone:</label>
+            <input type="text" name="phone" id="phone" placeholder="Your phone" />
+          </div>
+          <div class="border__contact__input">
+            <label for="">Message:</label>
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Your message"></textarea>
+          </div>
+          <input type="submit" value="Send" class="btn__send" />
+        </div>
+      </div>
+
+      <!-- <div class="contact__map">
+        <iframe class="aboutus-map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3192813592395!2d106.66408561446792!3d10.786840061951773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed2392c44df%3A0xd2ecb62e0d050fe9!2sFPT-Aptech%20Computer%20Education%20HCM!5e0!3m2!1sen!2s!4v1628272333196!5m2!1sen!2s"
+          style="border: 0" allowfullscreen="" loading="lazy"></iframe>
+      </div> -->
+
+      <div id="map" class="aboutus-map"></div>
+
+
+      <div></div>
+
+      <div class="location__map__aboutus">
+        <p id="distance"></p>
+        <p id="address_store"></p>
+      </div>
+
+
+
+    </div>
+    <div class="showroom">
+      <div class="image__showroom">
+        <img src="./image/contact/Thiet-ke-shop-hoa-tuoi-dep-1-4.jpg" alt="" />
+      </div>
+      <div class="info__showroom">
+        <p class="info__showroom__title">Showroom House Plant</p>
+        <p class="info__showroom__branch">Branch 1: 590 Cách Mạng Tháng Tám, P.11, Quận 3, TP. HCM</p>
+        <p class="info__showroom__branch">Branch 2: 391A Nam Kỳ Khởi Nghĩa, Võ Thị Sáu, Quận 3, HCM</p>
+        <p class="info__showroom__branch">Branch 3: 62 Đường 36, Hiệp Bình Phước, Vạn Phúc, Thủ Đức</p>
+        <p class="info__showroom__open">Open time: 8:00AM - 21:00PM Every day</p>
+        <p class="info__showroom__hotline">Hotline: 090909009</p>
+        <p class="info__showroom__hotline__note">All days of the week (Except Lunar New Year)</p>
+      </div>
+      <div class="contact__social">
+        <img src="./image/contactuslogo.svg" alt="" />
+        <div class="social__list">
+          <i class="fa-brands fa-facebook contact__icon__social"></i>
+          <i class="fa-brands fa-youtube contact__icon__social"></i>
+          <i class="fa-brands fa-instagram contact__icon__social"></i>
+          <i class="fa-brands fa-twitter contact__icon__social"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="" ng-click="totop()" class="return-top  "><i class="fa-solid fa-chevron-up"></i></a>
+</div>
